@@ -16,6 +16,20 @@ object Solution {
 }
 
 /**
+Contains duplicate
+https://leetcode.com/problems/contains-duplicate/submissions/
+*/
+import scala.collection.mutable.Set
+
+object Solution {
+    def containsDuplicate(nums: Array[Int]): Boolean = {
+        var numSet: scala.collection.mutable.Set[Int] = Set()
+        nums.foreach(num => { if(numSet.add(num) == false) return true })
+        false
+    }
+}
+
+/**
 Jump Game II
 https://leetcode.com/problems/jump-game-ii/submissions/
 */
