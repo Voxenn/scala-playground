@@ -30,6 +30,28 @@ object Solution {
 }
 
 /**
+Intersection of two arrays
+https://leetcode.com/problems/intersection-of-two-arrays-ii/submissions/
+*/
+import scala.collection.mutable.ListBuffer
+
+object Solution {
+    def intersect(nums1: Array[Int], nums2: Array[Int]): Array[Int] = {
+        var numBuff = new ListBuffer[Int]()
+        var count = 0
+        nums1.toList.collect{
+            case num if nums2.contains(num) => 
+                count = nums1.count(_ == num).min(nums2.count(_ == num))
+                if(numBuff.contains(num) != true) {
+                    numBuff += num
+                } else if((numBuff.count(_ == num) < count))
+                    numBuff += num
+        }
+        numBuff.toArray
+    }
+}
+
+/**
 Jump Game II
 https://leetcode.com/problems/jump-game-ii/submissions/
 */
