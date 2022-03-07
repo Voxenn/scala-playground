@@ -52,6 +52,22 @@ object Solution {
 }
 
 /**
+First unique character in a string
+https://leetcode.com/problems/first-unique-character-in-a-string/submissions/
+*/
+
+object Solution {
+    def firstUniqChar(s: String): Int = {
+        s.toCharArray.zipWithIndex.map( st => {
+            if( s.count(_ == st._1) == 1) {
+                return st._2
+            }
+        })
+        -1
+    }
+}
+
+/**
 Jump Game II
 https://leetcode.com/problems/jump-game-ii/submissions/
 */
